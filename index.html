@@ -4,11 +4,25 @@
   <head>
     <meta charset="utf-8">
     <title>Twitch TV</title>
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-
-    </script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
+    <script type="text/javascript">
+    var remoteUrlWithOrigin = "https://gist.githubusercontent.com/QuincyLarson/2ff6892f948d0b7118a99264fd9c1ce8/raw/e9e12f154d71cf77fc32e94e990749a7383ca2d6/Twitch%2520sample%2520API%2520responses%2520in%2520array%2520form";
 
+    $.ajax( {
+        url: remoteUrlWithOrigin,
+        //data: queryData,
+        dataType: 'json',
+        type: 'GET',
+        //headers: { 'Api-User-Agent': 'Example/1.0' },
+        success: function(data) {
+          console.log(data);
+        }
+      });
+
+          //$("#results").empty();
+
+    </script>
   </body>
 </html>
