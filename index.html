@@ -20,8 +20,25 @@
           //console.log(data);
           data.forEach(function (channel){
             var listItem = $(template);
-            $(listItem).find(".name").text(channel.display_name);
-            $("#results").append($(listItem));
+            if (channel.stream != null) {
+              var name = channel.stream.display_name;
+              var status = "online";
+            }
+            else {
+              var name = channel.display_name
+              var status = "offline";
+            }
+
+            if (!channel.error) {
+              $(listItem).find(".name").text(name);
+              $(listItem).find(".status").text(status);
+
+              console.log($(listItem));
+
+              $("#results").append($(listItem));
+
+            }
+
             //console.log($(listItem));
           });
         }
@@ -34,9 +51,8 @@
 
  <script type="text/template" id="list_item">
     <li>
-       <a class="name">
-        <h4 class="status"></h4>
-      </a>
+       <a class="name"></a>
+      <h4 class="status"></h4>
     </li>
   </script>
 
