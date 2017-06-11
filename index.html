@@ -12,16 +12,33 @@
 
     $.ajax( {
         url: remoteUrlWithOrigin,
-        //data: queryData,
         dataType: 'json',
         type: 'GET',
-        //headers: { 'Api-User-Agent': 'Example/1.0' },
         success: function(data) {
-          console.log(data);
+          var template  = $("#list_item").html();
+
+          //console.log(data);
+          data.forEach(function (channel){
+            var listItem = $(template);
+            $(listItem).find(".name").text(channel.display_name);
+            $("#results").append($(listItem));
+            //console.log($(listItem));
+          });
         }
       });
+        </script>
 
-          //$("#results").empty();
+        <h3>Channels</h3>
+        <ul id="results"> </ul>
+
+
+ <script type="text/template" id="list_item">
+    <li>
+       <a class="name">
+        <h4 class="status"></h4>
+      </a>
+    </li>
+  </script>
 
     </script>
   </body>
